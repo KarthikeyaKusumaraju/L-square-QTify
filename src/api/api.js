@@ -1,46 +1,39 @@
 import axios from "axios";
 
-export const BACKEND_ENPOINT = "https://qtify-backend.crio.do";
+export const BACKEND_ENDPOINT = "https://qtify-backend-labs.crio.do";
 
-// export const fetchTopAlbums = async () => {
-//   try {
-//     const res = await axios.get(`${BACKEND_ENPOINT}/albums/top`);
-//     return res.data.data; // ✅ FIX
-//   } catch (error) {
-//     console.error("Top albums error:", error);
-//     return [];
-//   }
-// };
 export const fetchTopAlbums = async () => {
   try {
-    const res = await axios.get(
-      "https://qtify-backend.crio.do/albums/top"
-    );
-    console.log("TOP ALBUMS RAW RESPONSE 👉", res.data);
-    return res.data;
-  } catch (error) {
-    console.error(error);
-    return [];
+    const response = await axios.get(`${BACKEND_ENDPOINT}/albums/top`);
+    return response.data;
+  } catch (e) {
+    console.error(e);
   }
 };
 
-
 export const fetchNewAlbums = async () => {
   try {
-    const res = await axios.get(`${BACKEND_ENPOINT}/albums/new`);
-    return res.data.data; // ✅ FIX
-  } catch (error) {
-    console.error("New albums error:", error);
-    return [];
+    const response = await axios.get(`${BACKEND_ENDPOINT}/albums/new`);
+    return response.data;
+  } catch (e) {
+    console.error(e);
   }
 };
 
 export const fetchSongs = async () => {
   try {
-    const res = await axios.get(`${BACKEND_ENPOINT}/songs`);
-    return res.data.data; // ✅ FIX
-  } catch (error) {
-    console.error("Songs error:", error);
-    return [];
+    const response = await axios.get(`${BACKEND_ENDPOINT}/songs`);
+    return response.data;
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const fetchFilters = async () => {
+  try {
+    const response = await axios.get(`${BACKEND_ENDPOINT}/genres`);
+    return response.data;
+  } catch (e) {
+    console.error(e);
   }
 };
